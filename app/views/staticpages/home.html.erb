@@ -111,8 +111,13 @@
       </div>
       <!-- /.container -->
     <% #else %>
+      <div class="col-md-8">
+        <h3>Micropost Feed</h3>
+        <%= render 'shared/feed' %>
+      </div>
+      
       <div>
-        <h1><%= link_to "SignIn", staticpages_new_path %></h1>
+        <h1><%= link_to "SignIn", sessions_new_path %></h1>
       </div>
     <% #end %>
    

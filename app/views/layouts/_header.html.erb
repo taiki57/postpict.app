@@ -32,16 +32,16 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
                 <ul>
-                  <li class="dropdown-item" ><%= link_to"profile" , staticpages_show_path %></li>
+                  <li class="dropdown-item" ><%= link_to"profile" , users_show_path %></li>
                   
                 
-                  <li class="dropdown-item" > <%= link_to "edit", edit_path %></li>
+                  <li class="dropdown-item" > <%= link_to "edit", sessions_edit_path %></li>
                 </ul>
              
                 <ul>
-                  <li class="dropdown-item" ><%= link_to"login" , login_path%></li>
+                  <li class="dropdown-item" ><%= link_to"login" , sessions_new_path%></li>
                   
-                  <li class="dropdown-item" ><%= link_to"signin" ,staticpages_new_path %></li>
+                  <li class="dropdown-item" ><%= link_to"signin" ,users_new_path %></li>
                 </ul>
             
             </div>
@@ -50,7 +50,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <li class="btn btn-outline-success my-2 my-sm-0"><%= link_to"NewPost" ,staticpages_newpost_path  %> </li>
+          <li class="btn btn-outline-success my-2 my-sm-0"><%= link_to"NewPost" ,microposts_newpost_path  %> </li>
         </form>
       </div>
     </nav>
@@ -76,16 +76,16 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
                 <ul>
-                  <li class="dropdown-item" ><%= link_to"profile" , staticpages_show_path %></li>
+                  <li class="dropdown-item" ><%= link_to"profile" , users_show_path %></li>
                   
                 
-                  <li class="dropdown-item" ><%= link_to"edit", edit_path %></li>
+                  <li class="dropdown-item" ><%= link_to"edit", sessions_edit_path %></li>
                 </ul>
              
                 <ul>
-                  <li class="dropdown-item" ><%= link_to"login" , login_path%></li>
+                  <li class="dropdown-item" ><%= link_to"login" , sessions_new_path%></li>
                   
-                  <li class="dropdown-item" ><%= link_to"signin" ,staticpages_new_path %></li>
+                  <li class="dropdown-item" ><%= link_to"signin" ,users_new_path %></li>
                 </ul>
             
             </div>
@@ -94,7 +94,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <li class="btn btn-outline-success my-2 my-sm-0"><%= link_to"NewPost" ,staticpages_newpost_path  %> </li>
+          <li class="btn btn-outline-success my-2 my-sm-0"><%= link_to"NewPost" ,microposts_newpost_path  %> </li>
         </form>
       </div>
     </nav>

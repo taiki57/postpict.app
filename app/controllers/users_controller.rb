@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-  #before_action :set_user, only: [:show, :new, :create, :edit, :update, :destroy]
-  
+ 
   def show
-   
-    
+   @user = User.find_by(id: params[:id])
   end
   
   def new
@@ -11,7 +9,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+    @user = User.create(user_params)
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
@@ -29,6 +27,19 @@ class UsersController < ApplicationController
 
   def destroy
   end
+  
+  def following
+   @title = "Following"
+   @user  = User.find(params[:id])
+   @users = @user.following.paginate(page: params[:page])
+   render 'use'
+  end
+  def followers
+   @title = "Followers"
+   @user  = User.find(params[:id])
+   @users = @user.followers.paginate(page: params[:page])
+   render '#'
+  end
 
 
   private
@@ -36,8 +47,7 @@ class UsersController < ApplicationController
   def user_params
      params.require(:user).permit(:name, :email ,:password ,:password_confirmation)
   end
- # def set_user
-#      @user = User.find(params[:id])
- # end
+
+
 
 end
