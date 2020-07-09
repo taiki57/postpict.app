@@ -6,8 +6,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   
   <body>
-    <%= form_with model: @user, url: sessions_new_path do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+    <%= form_for :session, url: sessions_new_path do |f| %>
+    
 
       <%= f.label :email %> 
       <%= f.email_field :email, class: 'form-control' %>
@@ -15,12 +15,8 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
+      <%= f.submit %>
       
-      <div class="form-group form-check">
-        <input type="checkbox" name= "" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
     <% end%>
   </body>
 </html>
