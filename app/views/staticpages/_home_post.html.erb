@@ -1,0 +1,27 @@
+        <!-- Project One -->
+        <% @feed_items.each do |feed_item|%>
+          <div class="row">
+            <div class="col-md-7">
+              <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+              </a>
+            </div>
+            <div class="col-md-5">
+              
+              <h3>
+                <%= form_with model: @user, url: user_path("#{feed_item.id}") do|f|%>
+                 <%= f.hidden_field :id, value: feed_item.id%>
+                 <%= f.submit "#{feed_item.id}"%>
+                <% end %>
+                <%= link_to "#{feed_item.id}" ,user_path("#{feed_item.id}")%>
+              </h3>
+              
+              <p><%=feed_item.content%></p>
+              <a class="btn btn-primary" href="#"><%= feed_item.id%></a>
+            </div>
+            
+          </div>
+          <!-- /.row -->
+    
+          <hr>
+        <% end %>

@@ -2,7 +2,13 @@
         <aside class="col-md-4">
           <div class="user_info">
             <ul>
-                <li> <%= @user%></li>
+                <li> <%= @user.name%></li>
+                <li><%= @user.email%></li>
+                <% if !ensure_correct_user %>
+          
+                  <li ><%= link_to "edit", edit_user_path(current_user) %></li>
+                <% end %>
+               
             </ul>
           </div>
         </aside>

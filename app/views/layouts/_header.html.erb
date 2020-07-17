@@ -32,16 +32,10 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             
                 <ul>
-                  <li class="dropdown-item" ><%= link_to"profile" , users_show_path %></li>
+                  <li class="dropdown-item" ><%= link_to"profile" , users_path %></li>
                   
-                
-                  <li class="dropdown-item" > <%= link_to "edit", sessions_edit_path %></li>
-                </ul>
-             
-                <ul>
-                  <li class="dropdown-item" ><%= link_to"login" , sessions_new_path%></li>
                   
-                  <li class="dropdown-item" ><%= link_to"signin" ,users_new_path %></li>
+                  <li class="dropdown-item" > <%= link_to "log_out", sessions_destroy_path %></li>
                 </ul>
             
             </div>
@@ -74,18 +68,10 @@
               Dropdown
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-                <ul>
-                  <li class="dropdown-item" ><%= link_to"profile" , users_show_path %></li>
-                  
-                
-                  <li class="dropdown-item" ><%= link_to"edit", sessions_edit_path %></li>
-                </ul>
-             
                 <ul>
                   <li class="dropdown-item" ><%= link_to"login" , sessions_new_path%></li>
                   
-                  <li class="dropdown-item" ><%= link_to"signin" ,users_new_path %></li>
+                  <li class="dropdown-item" ><%= link_to"signin" ,new_user_path %></li>
                 </ul>
             
             </div>

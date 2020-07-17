@@ -3,6 +3,7 @@
 <%= form_with model: @micropost, url: microposts_newpost_path do |f| %>
   <%= render 'shared/error_messages', object: f.object %>  
   
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.text_area :content, class: 'form-control', placeholder: "Compose new micropost..." %>
   <%= f.submit "micropost", class: "btn btn-primary" %>
 <% end %>

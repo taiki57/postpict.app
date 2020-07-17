@@ -1,6 +1,13 @@
-<li >
-    <span class="content"><%= @micropost%></span>
-    <span class="timestamp">
-       
-    </span>
-</li>
+<ul>
+    <% @micropost.each do |micropost| %>
+    <h5><%= micropost.id%></h5>
+    <div class="content">
+        <%= micropost.content%>
+    </div>
+    <%= link_to "delete", url: "/microposts/#{micropost.id}/destroy" , method: :post %>
+    
+    
+    <hr>
+    <% end %>
+    
+</ul>

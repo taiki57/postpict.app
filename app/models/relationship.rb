@@ -3,6 +3,6 @@ class Relationship < ApplicationRecord
     belongs_to :followed, class_name: "User"
     validates :follower_id, presence: true
     validates :followed_id, presence: true
-    has_many :following, through: :active_relationships, source: :followed
-    has_many :followed, through: :active_relationships, source: :followind
+   #has_many :follower, through: :active_relationships, source: :followed
+   #has_many :followed, through: :active_relationships, source: :follower
 end

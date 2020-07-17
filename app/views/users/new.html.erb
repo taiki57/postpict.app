@@ -1,7 +1,7 @@
 <%= render 'layouts/header'%>
 
   <body>
-    <%= form_with model: @user, url: users_new_path do |f| %>
+    <%= form_with model: @user, url: "/users" do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       
       

@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    #before_action :logged_in? ,only:[:show, :create, :destroy]
+    before_action :logged_in? ,only:[:new, :create, :destroy]
   
     
     def new
@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
         @micropost = Micropost.create(micropost_params)
         if @micropost.save
             flash[:success] = "Micropost created!"
-            redirect_to users_show_path
+            redirect_to staticpages_home_path
             @feed_items = []
         else
             render 'microposts/new'
@@ -19,6 +19,10 @@ class MicropostsController < ApplicationController
     end
 
     def destroy
+        @micropost = Micropost.find_by(params[:id])
+        @micropost.destroy
+        
+        render 'index'
     end
     
     def save 
@@ -26,6 +30,7 @@ class MicropostsController < ApplicationController
     
     private
     def micropost_params
-        params.require(:micropost).permit(:id, :content, :user_id)
+        params.require(:micropost).permit(:id, :content, :user_id, :created_at, :updated_at)
     end
+    
 end

@@ -8,7 +8,7 @@
 
 # ユーザー
 User.create!(name:  "Example User",
-             email: "example@railstutorial13.org",
+             email: "example@railstutorial17.org",
              password:              "foobar",
              password_confirmation: "foobar")
 

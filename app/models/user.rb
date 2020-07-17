@@ -7,8 +7,11 @@ class User < ApplicationRecord
     has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
+    #has_many :following, through: :active_relationships,  source: :relationships
+    #has_many :followed, through: :passive_relationships, source: :relationships
     has_many :following, through: :active_relationships,  source: :followed
-    has_many :followers, through: :passive_relationships, source: :follower
+    has_many :followers, through: :passive_relationships, source: :follower 
+    
     
     validates :name, presence: true, length: {maximum: 50}
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -20,7 +23,7 @@ class User < ApplicationRecord
 
 
     def feed
-        Micropost.where(id: id)
+        Micropost.where(user_id: id)
     end
       # ユーザーをフォローする
       def follow(other_user)

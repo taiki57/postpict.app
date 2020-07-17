@@ -1,0 +1,16 @@
+<%= render 'layouts/header'%>
+
+<body>
+    <%= form_for @user, url: user_path do |f|%>
+        <%= f.hidden_field :id, :value => current_user.id %>
+        
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+        
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+        
+        <%= f.submit 'edit my profile' , class: "btn btn-primary"%>
+        
+    <% end %>
+</body>
