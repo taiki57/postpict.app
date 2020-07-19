@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   def show
    @user = User.find_by(params[:id])
    @users = @user.followers.page(params[:page])
-   @micropost = Micropost.find(params[:id])
-   render "show"
+   @shows = Micropost.where(params[:id])
+   
   end
   
   def show_create
