@@ -16,7 +16,7 @@
     <% if @users.any? %>
       <ul class="users follow">
           <%= @users.each do|user|%>
-            <li><%= user.followers%></li>
+            <li><%= @user.followers%></li>
           <% end%>
       </ul>
       <%= paginate @users %>

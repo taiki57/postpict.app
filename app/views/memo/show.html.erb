@@ -1,0 +1,36 @@
+<%= render 'layouts/header'%>
+
+<main>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <h1>
+          
+            <%= current_user.name %>
+          </h1>
+        </section>
+        <section class="stats">
+          <%= render 'shared/stat' %>
+        </section>
+        <% if !ensure_correct_user %>
+          <def>
+            <%= link_to "edit", edit_user_path(current_user) %>
+          </def>
+        <% end %>
+      </aside>
+      
+      <%= @shows.each do |show|%>
+        <div>
+          <h3>
+              <%= show.id%>
+          </h3>
+            
+          <div>
+              <%= show.content%>
+             
+              <%= link_to "toukou",microposts_newpost_path(content: show.content, authenticity_token: form_authenticity_token), method: :post %>
+          </div>
+        </div>
+      <% end%>
+    </div>
+</main>

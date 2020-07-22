@@ -3,11 +3,11 @@ class MicropostsController < ApplicationController
   
     
     def new
-        @micropost = Micropost.new
+       
+            @micropost = Micropost.new
     end
     
     def create
-        
         @micropost = Micropost.create(micropost_params)
         if @micropost.save
             flash[:success] = "Micropost created!"
@@ -17,7 +17,9 @@ class MicropostsController < ApplicationController
             render 'microposts/new'
         end
     end
-
+    
+    
+    
     def destroy
         @micropost = Micropost.find_by(params[:id])
         @micropost.destroy

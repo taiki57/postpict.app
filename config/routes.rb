@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   get 'microposts/newpost' => 'microposts#new'
   post 'microposts/newpost' => 'microposts#create'
  
-  post 'microposts/:id/destroy' => 'microposts#destroy'
+  delete 'microposts/:id/destroy' => 'microposts#destroy'
+  
+  get 'memo/memo' => 'memo#new'
+  post 'memo/memo' => 'memo#create'
+  get 'memo/show' => 'memo#show'
+  
   
   get 'users/follow' => 'users#follow'
   

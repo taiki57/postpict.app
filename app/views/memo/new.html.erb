@@ -1,0 +1,32 @@
+<%= render 'layouts/header'%>
+
+<main>
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <h1>
+          
+            <%= current_user.name %>
+          </h1>
+        </section>
+        <section class="stats">
+          <%= render 'shared/stat' %>
+        </section>
+        <% if !ensure_correct_user %>
+          <def>
+            <%= link_to "edit", edit_user_path(current_user) %>
+          </def>
+        <% end %>
+      </aside>
+      <%= link_to "保存一覧", memo_show_path %>
+      <%= form_with model: @memo, url: memo_memo_path do |f| %>
+          <%= render 'shared/error_messages', object: f.object %>  
+          
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.text_area :content, class: 'form-control', placeholder: "Compose new micropost..." %>
+          <%= f.submit "memo", class: "btn btn-primary" %>
+  
+      <% end %>
+      
+      
+</main>

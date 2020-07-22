@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
      @user||=current_user
     if logged_in?
-     @micropost = Micropost.where(user_id: current_user.id)
+     @shows = Micropost.where(user_id: current_user.id)
      @relationship = Relationship.where(follower_id: current_user.id) 
      @user_feed = Micropost.new
     end
@@ -14,15 +14,10 @@ class UsersController < ApplicationController
   def show
    @user = User.find_by(params[:id])
    @users = @user.followers.page(params[:page])
-   @shows = Micropost.where(params[:id])
-   
+   @shows = Micropost.where(user_id: params[:id])
   end
   
-  def show_create
-   @user = User.find_by(params[:user_id])
-   @micropost = Micropost.find(user_id: params[:user_id])
-   render "show"
-  end
+ 
   
   def new
     @user =User.new
@@ -55,8 +50,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-      @user = log_in(user)
-      
+      @micopost = Micropost.find_by(params[:id])
+      @micopost.destroy
+      render "index"
   end
   
   def following
@@ -78,7 +74,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-     params.require(:user).permit(:id, :name, :email ,:password ,:password_confirmation)
+     params.require(:user).permit(:id, :name, :email ,:password ,:password_confirmation, :user_id)
   end
 
   def micropost_params

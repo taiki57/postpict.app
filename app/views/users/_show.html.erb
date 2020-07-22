@@ -1,11 +1,12 @@
 <ul>
-    <% @shows.each do |micropost| %>
-    <h5><%= micropost.id%></h5>
+    <% @shows.each do |show| %>
+    <h5><%= show.id%></h5>
     <div class="content">
-        <%= micropost.content%>
+        <%= show.content%>
     </div>
-    <%= link_to "delete", url: "/microposts/#{micropost.id}/destroy" , method: :post %>
-    
+    <% if !ensure_correct_user %>
+        <%= link_to "delete", url: "users/:#{show.id}" , method: :destroy %>
+    <% end %>
     
     <hr>
     <% end %>

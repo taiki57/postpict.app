@@ -9,11 +9,7 @@
             <div class="col-md-5">
               
               <h3>
-                <%= form_with model: @user, url: user_path("#{feed_item.id}") do|f|%>
-                 <%= f.hidden_field :id, value: feed_item.id%>
-                 <%= f.submit "#{feed_item.id}"%>
-                <% end %>
-                <%= link_to "#{feed_item.id}" ,user_path("#{feed_item.id}")%>
+                <%= link_to "#{feed_item.id}" ,user_path("#{feed_item.user_id}")%>
               </h3>
               
               <p><%=feed_item.content%></p>
