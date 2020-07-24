@@ -50,9 +50,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-      @micopost = Micropost.find_by(params[:id])
-      @micopost.destroy
-      render "index"
+
   end
   
   def following

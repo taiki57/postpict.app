@@ -24,9 +24,7 @@ module SessionsHelper
         current_user = nil
     end
     
-    def ensure_correct_user
-        !current_user.id
-    end
+    
     
     
     

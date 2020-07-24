@@ -4,8 +4,8 @@
     <div class="content">
         <%= show.content%>
     </div>
-    <% if !ensure_correct_user %>
-        <%= link_to "delete", url: "users/:#{show.id}" , method: :destroy %>
+    <% if current_user.id == show.user_id %>
+        <%= button_to "delete", url: "microposts/#{show.id}/destroy", method: :delete %>
     <% end %>
     
     <hr>

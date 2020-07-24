@@ -1,10 +1,9 @@
 class MicropostsController < ApplicationController
     before_action :logged_in? ,only:[:new, :create, :destroy]
-  
+    protect_from_forgery with: :null_session
     
     def new
-       
-            @micropost = Micropost.new
+        @micropost = Micropost.new
     end
     
     def create
@@ -21,10 +20,9 @@ class MicropostsController < ApplicationController
     
     
     def destroy
-        @micropost = Micropost.find_by(params[:id])
-        @micropost.destroy
-        
-        render 'index'
+        @micoposts = Micropost.find_by(params[:user_id])
+        @micoposts.destroy
+        redirect_to user_path
     end
     
     def save 

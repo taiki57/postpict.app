@@ -6,11 +6,16 @@ Rails.application.routes.draw do
   get 'staticpages/home' => 'staticpages#home' 
   get 'staticpages/link' => 'https://www.instagram.com/?hl=ja'
   
+
   
   resources 'users'
+
+  delete 'users/:id/destroy' => 'users#destroy'
+
   post 'users/:id' => 'users#show'
   
   post 'users/new' => 'users#create'
+  
   
  
   get 'sessions/new' => 'sessions#new'
