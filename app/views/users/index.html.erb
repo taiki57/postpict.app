@@ -5,14 +5,13 @@
       <aside class="col-md-4">
         <section class="user_info">
           <h1>
-          
             <%= @user.name %>
           </h1>
         </section>
         <section class="stats">
           <%= render 'shared/stat' %>
         </section>
-        <% if current_user != @user %>
+        <% if current_user.id == @user.id %>
           <def>
             <%= link_to "edit", edit_user_path(current_user) %>
           </def>

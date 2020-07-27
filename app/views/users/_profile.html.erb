@@ -4,8 +4,7 @@
             <ul>
                 <li> <%= @user.name%></li>
                 <li><%= @user.email%></li>
-                <% if !ensure_correct_user %>
-          
+                <% if current_user.id == @user.id %>
                   <li ><%= link_to "edit", edit_user_path(current_user) %></li>
                 <% end %>
                

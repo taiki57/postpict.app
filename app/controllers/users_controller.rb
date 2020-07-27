@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
      @user||=current_user
     if logged_in?
-     @shows = Micropost.where(user_id: current_user.id)
+     @show = Micropost.where(user_id: current_user.id)
      @relationship = Relationship.where(follower_id: current_user.id) 
      @user_feed = Micropost.new
     end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
    @user = User.find_by(params[:id])
    @users = @user.followers.page(params[:page])
-   @shows = Micropost.where(user_id: params[:id])
+   @show = Micropost.where(user_id: params[:id])
   end
   
  
@@ -35,18 +35,17 @@ class UsersController < ApplicationController
   end
   
   def edit
-      @user = User.find(params[:id])
+    @user = User.find_by(params[:id])
   end
 
   def update
-      @user =  User.find_by(params[:id])
-      if @user.update(id: params[:id], name: params[:name], email: params[:email])
-          flash[:success] = "Profile updated"
-          redirect_to index
-          buybug
-      else
-        render 'edit'
-      end
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to index
+    else
+      render 'edit'
+    end
   end
 
   def destroy

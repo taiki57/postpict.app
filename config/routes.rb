@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   
   post 'users/new' => 'users#create'
   
+  #####
+  get 'users/:id/edit' => 'users#edit'
+  patch 'users/:id/edit' => 'users#edit'
+  
+  ####
   
  
   get 'sessions/new' => 'sessions#new'
@@ -27,12 +32,14 @@ Rails.application.routes.draw do
   get 'microposts/newpost' => 'microposts#new'
   post 'microposts/newpost' => 'microposts#create'
  
-  delete 'microposts/:id/destroy' => 'microposts#destroy'
   
   get 'memo/memo' => 'memo#new'
   post 'memo/memo' => 'memo#create'
   get 'memo/show' => 'memo#show'
   
+  resources 'microposts'
+  get 'microposts/destroy' => 'microposts#destroy'
+ 
   
   get 'users/follow' => 'users#follow'
   

@@ -20,9 +20,10 @@ class MicropostsController < ApplicationController
     
     
     def destroy
-        @micoposts = Micropost.find_by(params[:user_id])
+        @show = Micropost.where(user_id: params[:id])
+        @micoposts = Micropost.find_by("#{@show.id}")
         @micoposts.destroy
-        redirect_to user_path
+       
     end
     
     def save 

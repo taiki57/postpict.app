@@ -1,12 +1,11 @@
 <ul>
-    <% @shows.each do |show| %>
+    <% @show.each do |show| %>
     <h5><%= show.id%></h5>
     <div class="content">
         <%= show.content%>
     </div>
-    <% if current_user.id == show.user_id %>
-        <%= button_to "delete", url: "microposts/#{show.id}/destroy", method: :delete %>
-    <% end %>
+    
+    <%= render 'microposts/destroy'%>
     
     <hr>
     <% end %>

@@ -1,7 +1,7 @@
 <%= render 'layouts/header'%>
 
 <body>
-    <%= form_for @user, url: user_path do |f|%>
+    <%= form_for @user, url: "/users/#{@user.id}/edit" do |f|%>
         <%= f.hidden_field :id, :value => current_user.id %>
         
         <%= f.label :name %>
