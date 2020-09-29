@@ -47,6 +47,9 @@ Rails.application.routes.draw do
   
   post 'users/:id/following' => 'users#following'
   
+  
+  get 'information/home' => 'information#home'
+  
   resources :users do
     member do
       get :following, :followers

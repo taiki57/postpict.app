@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'mechanize', '~> 2.7', '>= 2.7.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 gem 'bcrypt',  '3.1.12'
@@ -60,7 +62,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 1.2', '>= 1.2.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

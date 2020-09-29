@@ -23,7 +23,6 @@ class MicropostsController < ApplicationController
         @show = Micropost.where(user_id: params[:id])
         @micoposts = Micropost.find_by("#{@show.id}")
         @micoposts.destroy
-       
     end
     
     def save 
